@@ -3,11 +3,19 @@ Created on 1 Mar 2018
 
 @author: Dillon
 '''
+import requests
 
 def parseFile(input):
-    if input.startswith('http'):
-        # use requests
-        pass
+    if input.startswith('http'): 
+        N, instructions = None, []
+        r = requests.get(input).text
+        commands = r.splitlines()
+        
+        N = int(commands[0])
+        
+        for i in range(1, len(commands)):
+            instructions.append(commands[i])
+        return N, instructions
     else:
         # read from disk
         N, instructions = None, []
