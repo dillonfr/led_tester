@@ -15,19 +15,21 @@ class LightTester:
     
     def count(self):
         #count the lights that are on
-        return count
-            
+        #return count
+        pass;
 
 
 """Main module."""
 import cmd
 def main(filename, N):
-    Lights = LightTester(N)
+    #Lights = LightTester(N)
+    for line in filename:
+        print(line)
+    #instructions = parseFile(filename)
     
-    instructions = parseFile(filename)
-    
-    for cmd in instructions:
-        lights.apply(cmd)
-                     
-    print("# occupied: #", light.count())
+    #for cmd in instructions:
+        #lights.apply(cmd)
+        #pass;
+              
+    #print("# occupied: #", light.count())
     

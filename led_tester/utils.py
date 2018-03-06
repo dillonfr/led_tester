@@ -5,7 +5,6 @@ Created on 1 Mar 2018
 '''
 
 def parseFile(input):
-
     if input.startswith('http'):
         # use requests
         pass
