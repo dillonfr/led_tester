@@ -50,7 +50,6 @@ class LightTester:
                     else:
                         self.lights[i][j] = True
         
-        self.commandCount += 1
         return 0
     
     def count(self):
