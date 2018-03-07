@@ -6,7 +6,6 @@ class LightTester:
     
     def __init__(self, N):
         self.lights = [[False]*N for _ in range(N)] #creates multidimensional array with size N
-        self.commandCount = 0
         
     def apply(self, cmd, x1, y1, x2, y2):
         x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
@@ -81,8 +80,7 @@ def main(input=None):
     N,instructions = utils.parseFile(input)
     
     Lights = LightTester(N)
-    
-    cCount = 0
+
     #print("N is: ", N)
     for instruction in instructions:
         #print(instruction)
@@ -90,9 +88,10 @@ def main(input=None):
         cmd = pat.match(instruction)
         #print("matched: ", cmd is not None, cmd.groups())
         #print(cmd.group(1), cmd.group(2), cmd.group(3), cmd.group(4), cmd.group(5))
-        Lights.apply(cmd.group(1), cmd.group(2), cmd.group(3), cmd.group(4), cmd.group(5))
-        cCount += 1
-        print("Command count: ", cCount)
+        if (cmd != None):
+            Lights.apply(cmd.group(1), cmd.group(2), cmd.group(3), cmd.group(4), cmd.group(5))
+        else:
+            continue;
         #Lights.apply(instruction)
         
         
