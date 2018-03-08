@@ -64,4 +64,3 @@ def test_spell_error():
     Lights.apply("tuzn of", 5, 5, 9, 9)
     assert Lights.count() > 5
     
-    
