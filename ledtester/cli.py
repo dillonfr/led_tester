@@ -64,7 +64,7 @@ class LightTester:
 import sys
 sys.path.append('.')
 import click
-import utils
+from ledtester import utils
 import re
 click.disable_unicode_literals_warning = True
 
