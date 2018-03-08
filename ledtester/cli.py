@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""Console script for led_tester."""
+"""Console script for ledtester."""
 class LightTester:
     Lights = None
     
@@ -73,7 +73,7 @@ click.disable_unicode_literals_warning = True
 
 
 def main(input=None):
-    """Console script for led_tester."""
+    """Console script for ledtester."""
     #print("input", input)
     
     N,instructions = utils.parseFile(input)
