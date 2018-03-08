@@ -25,8 +25,17 @@ LED Tester Assignment 3 COMP30670
 
 Features
 --------
+Takes in instructions for an LED grid display, counting how many lights are left on after a series of instructions.
+Sample instructions:
+turn on 10,10 through 90,90
+turn off 25,25 through 50,50
+switch 0,0 through 99,99
 
-* TODO
+
+Commands to use this ledtester for local files or http files:
+
+$ solveled --input localfile.txt
+$ solveled --input http://a.b.com.txt
 
 Credits
 -------
