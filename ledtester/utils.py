@@ -6,6 +6,7 @@ Created on 1 Mar 2018
 import requests
 
 def parseFile(input):
+    #read in http file
     if input.startswith('http'): 
         N, instructions = None, []
         r = requests.get(input).text
@@ -16,14 +17,13 @@ def parseFile(input):
         for i in range(1, len(commands)):
             instructions.append(commands[i])
         return N, instructions
+    #read in local file
     else:
-        # read from disk
         N, instructions = None, []
         with open(input, 'r') as f:
             N = int(f.readline())
             for line in f.readlines():
                 instructions.append(line)
-        # haven't written the code yet...
         return N, instructions
     return
 

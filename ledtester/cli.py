@@ -8,8 +8,10 @@ class LightTester:
         self.lights = [[False]*N for _ in range(N)] #creates multidimensional array with size N
         
     def apply(self, cmd, x1, y1, x2, y2):
+        #cast the coordinates to ints
         x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
         
+        #make sure they are within the range of the grid
         if x1 < 0:
             x1 = 0
         elif x1 > len(self.lights)-1:
@@ -30,7 +32,6 @@ class LightTester:
         elif y2 > len(self.lights)-1:
             y2 = len(self.lights)-1
         
-        #print("Params: ", cmd, x1, y1, x2, y2)
         
         if cmd == "turn on":
             for i in range(x1, x2+1):
@@ -54,7 +55,6 @@ class LightTester:
     
     def count(self):
         count = 0
-        #print("The length is: ", len(self.lights))
         for i in range(0, len(self.lights)):
             for j in range(0, len(self.lights)):
                 if self.lights[i][j] == True:
@@ -74,24 +74,20 @@ click.disable_unicode_literals_warning = True
 
 def main(input=None):
     """Console script for ledtester."""
-    #print("input", input)
-    
     N,instructions = utils.parseFile(input)
     
     Lights = LightTester(N)
 
-    #print("N is: ", N)
     for instruction in instructions:
-        #print(instruction)
         pat = re.compile(".*(turn on|turn off|switch)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*through\s*([+-]?\d+)\s*,\s*([+-]?\d+).*")
         cmd = pat.match(instruction)
+        #uncomment these to see what the regex has found and grouped
         #print("matched: ", cmd is not None, cmd.groups())
         #print(cmd.group(1), cmd.group(2), cmd.group(3), cmd.group(4), cmd.group(5))
         if (cmd != None):
             Lights.apply(cmd.group(1), cmd.group(2), cmd.group(3), cmd.group(4), cmd.group(5))
         else:
             continue;
-        #Lights.apply(instruction)
         
         
     print("# occupied:", Lights.count())

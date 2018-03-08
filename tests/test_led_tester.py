@@ -6,9 +6,9 @@ import sys
 sys.path.append('.')
 import pytest
 from click.testing import CliRunner
-from led_tester import led_tester
-from led_tester import cli
-from led_tester import utils
+from ledtester import ledtester
+from ledtester import cli
+from ledtester import utils
 
 
 @pytest.fixture
